@@ -77,5 +77,3 @@ function TareaNueva() {
   )
 }
 export default TareaNueva
-//Validar la fecha de este apartado
-//Falta 17 min
