@@ -26,6 +26,7 @@ export const AuthProvider = ({ children }) => {
       setuser(res.data)
       setisAuthent(true)
     } catch (error) {
+      console.log(error)
       setErrors(error.response.data)
       // console.error(error.response)
     }

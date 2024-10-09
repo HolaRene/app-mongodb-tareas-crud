@@ -14,7 +14,7 @@ function IniciarSecion() {
 
   useEffect(() => {
     if (isAuthent) {
-      navigate('/tareas') // Usamos navigate correctamente
+      navigate('/') // Usamos navigate correctamente
     }
   }, [isAuthent, navigate]) // Se ejecuta cuando isAuthent cambia, y cuando navigate cambia
 

@@ -6,9 +6,9 @@ function Navegacion() {
   console.log(user)
 
   return (
-    <nav className='bg-zinc-500 my-3 flex flex-col md:flex-row justify-between py-3 px-5 md:px-10'>
+    <nav className='bg-sky-900 my-3 flex flex-col md:flex-row justify-between py-3 px-5 md:px-10'>
       <div className='flex justify-between w-full md:w-auto'>
-        <Link to={isAuthent ? '/tareas' : '/'}>
+        <Link to={isAuthent ? '/' : '/'}>
           <h1 className='text-xl md:text-2xl font-bold'>
             Aplicación de Tareas
           </h1>
@@ -19,7 +19,7 @@ function Navegacion() {
         {isAuthent ? (
           <>
             <li className='text-center md:text-left'>
-              Bienvenido <i>{user.username}</i>
+              Bienvenido <i className='font-mono'>{user.username}</i>
             </li>
             <li>
               <Link

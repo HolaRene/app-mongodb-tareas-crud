@@ -17,7 +17,7 @@ function Registro() {
 
   useEffect(() => {
     if (isAuthent) {
-      navigate('/tareas') // Usamos navigate correctamente
+      navigate('/') // Usamos navigate correctamente
     }
   }, [isAuthent, navigate])
 
