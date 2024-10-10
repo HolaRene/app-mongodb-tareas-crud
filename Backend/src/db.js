@@ -1,14 +1,16 @@
-import mongoose from "mongoose";
-import { MONGODB_DATA } from "./config.js";
+import mongoose from 'mongoose';
+import { MONGODB_DATA } from './config.js'; // Asegúrate de que la ruta sea correcta
 
-
-export const conexionDb = async () => {
+const conexionDb = async () => {
     try {
-        await mongoose.connect(MONGODB_DATA)
-        console.log('>>> Se ha connectado la base de datos', MONGODB_DATA)
+        await mongoose.connect(MONGODB_DATA, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
+        console.log("Conexión a la base de datos exitosa");
+    } catch (error) {
+        console.error("Error en la conexión a la base de datos", error);
     }
-    catch (error) {
-        console.log('Es es el error de la base de datos', error)
-    }
-}
+};
 
+export default conexionDb;
