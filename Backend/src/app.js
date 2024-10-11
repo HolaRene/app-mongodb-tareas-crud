@@ -7,28 +7,30 @@ import Tareas from "./routes/task.routes.js";
 import authRoutes from './routes/auth.routes.js';  // Asegúrate de la extensión .js
 
 const app = express();
-const allowedOrigins = ['http://localhost:5173', 'https://frontend-tareas-crud.onrender.com'];
+const FRONTEND_URL = ['http://localhost:5173', process.env.FRONTEND_URL];
 
 // Configuración dinámica de CORS
-app.use(cors({
-    origin: function (origin, callback) {
-        // Permitir solicitudes sin origen (por ejemplo, Postman o cURL)
-        if (!origin) return callback(null, true);
-
-        // Verificar si el origen de la solicitud está en la lista de permitidos
-        if (allowedOrigins.indexOf(origin) !== -1) {
-            callback(null, true);
-        } else {
-            callback(new Error('No permitido por CORS'));
-        }
-    },
-    credentials: true, // Permitir cookies y credenciales
-}));
+app.use(
+    cors({
+        credentials: true,
+        origin: FRONTEND_URL,
+    })
+);
 app.use(morgan('dev'));
 app.use(express.json())
 app.use(cookieParser())
 //usar las rutas
 app.use('/api', authRoutes);
 app.use('/api', Tareas);
+
+if (process.env.NODE_ENV === "production") {
+    const path = await import("path");
+    app.use(express.static("client/dist"));
+
+    app.get("*", (req, res) => {
+        console.log(path.resolve("client", "dist", "index.html"));
+        res.sendFile(path.resolve("client", "dist", "index.html"));
+    });
+}
 
 export default app;

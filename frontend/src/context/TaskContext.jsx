@@ -31,7 +31,7 @@ export function TaskProvider({ children }) {
 
   const cTarea = async tarea => {
     const res = await crearTarea(tarea)
-    console.log(res)
+    // console.log(res)
   }
   const eliTarea = async id => {
     try {

@@ -24,7 +24,11 @@ export const registro = async (req, res) => {
         const userSaved = await newUser.save()
         const token = await crearAccesToken({ id: userSaved._id })
         //re.cookie es un metodo de express para establecer una cookie
-        res.cookie('token', token)
+        res.cookie("token", token, {
+            httpOnly: process.env.NODE_ENV !== "development",
+            secure: true,
+            sameSite: "none",
+        });
         res.json({
             msg: 'Usuario creado',
             id: userSaved._id,
@@ -42,24 +46,29 @@ export const registro = async (req, res) => {
 }
 export const login = async (req, res) => {
     //datos que envia el usuario
-    const { email, password } = req.body
 
     try {
+        const { email, password } = req.body
         //encontrar un usuario por su email
         const userFound = await User.findOne({ email });
 
         if (!userFound) return res.status(400).send({
-            error: 'No se ha encontrado el usuario'
+            error: ['No se ha encontrado el usuario']
         })
 
         const isPassword = await bcrypt.compare(password, userFound.password);//comparar las contraseña del usuario, retorna un true o false
         if (!isPassword) return res.status(400).json({
-            error: 'Contraseña incorrecta'
+            error: ['Contraseña incorrecta']
         })
         //del usuario encontrado se craera un token
-        const token = await crearAccesToken({ id: userFound._id })
+        const token = await crearAccesToken({ id: userFound._id, username: userFound.username, })
         //re.cookie es un metodo de express para establecer una cookie
-        res.cookie('token', token)
+        res.cookie("token", token, {
+            httpOnly: process.env.NODE_ENV !== "development",
+            secure: true,
+            sameSite: "none",
+        });
+
         res.json({
             msg: 'Haz iniciado sesion',
             id: userFound._id,
@@ -76,9 +85,11 @@ export const login = async (req, res) => {
     }
 }
 export const logout = (req, res) => {
-    res.cookie('token', '', {
-        expires: new Date(0) //fecha de expiracion
-    })
+    res.cookie("token", "", {
+        httpOnly: true,
+        secure: true,
+        expires: new Date(0),
+    });
     res.status(200).send({ message: 'Sesión cerrada' })
 }
 export const perfil = async (req, res) => {
