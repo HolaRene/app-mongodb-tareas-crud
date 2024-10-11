@@ -7,10 +7,7 @@ import Tareas from "./routes/task.routes.js";
 import authRoutes from './routes/auth.routes.js';  // Asegúrate de la extensión .js
 
 const app = express();
-const allowedOrigins = [
-    'https://frontend-tareas-crud.onrender.com',
-    'http://localhost:5173'
-];
+const allowedOrigins = ['http://localhost:5173', 'https://frontend-tareas-crud.onrender.com'];
 
 // Configuración dinámica de CORS
 app.use(cors({

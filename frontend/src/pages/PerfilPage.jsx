@@ -19,14 +19,6 @@ function PerfilPage() {
               ID: {user?.id || 'ID no disponible'}
             </p>
           </div>
-          <div className='mt-6 flex justify-around'>
-            <button className='bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-md'>
-              Editar Perfil
-            </button>
-            <button className='bg-red-600 hover:bg-red-500 text-white px-4 py-2 rounded-md'>
-              Cerrar Sesión
-            </button>
-          </div>
         </div>
       ) : (
         <div>INICIO</div>

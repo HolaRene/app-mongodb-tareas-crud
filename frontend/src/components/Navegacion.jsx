@@ -8,7 +8,7 @@ function Navegacion() {
   return (
     <nav className='bg-sky-900 my-3 flex flex-col md:flex-row justify-between py-3 px-5 md:px-10'>
       <div className='flex justify-between w-full md:w-auto'>
-        <Link to={isAuthent ? '/' : '/'}>
+        <Link to={isAuthent ? '/perfil' : '/'}>
           <h1 className='text-xl md:text-2xl font-bold'>
             Aplicación de Tareas
           </h1>

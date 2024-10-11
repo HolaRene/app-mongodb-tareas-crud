@@ -3,7 +3,7 @@ import axios from "axios";
 const baseURL =
     import.meta.env.MODE === "development"
         ? "http://localhost:3000/api"  // URL de desarrollo
-        : "https://backend-mern-tareas.onrender.com";  // URL de producción
+        : "https://backend-mern-tareas.onrender.com/api";  // URL de producción
 
 const instancia = axios.create({
     baseURL: baseURL,
