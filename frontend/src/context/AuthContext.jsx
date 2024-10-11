@@ -34,7 +34,6 @@ export const AuthProvider = ({ children }) => {
   const signing = async user => {
     try {
       const res = await iniciarS(user)
-      console.log(res)
       setuser(res.data)
       setisAuthent(true)
     } catch (error) {
