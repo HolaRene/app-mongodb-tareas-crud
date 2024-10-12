@@ -19,7 +19,7 @@ function Navegacion() {
         {isAuthent ? (
           <>
             <li className='text-center md:text-left'>
-              Bienvenido <i className='font-mono'>{user.username}</i>
+              Bienvenido <i className='font-mono font-bold'>{user.username}</i>
             </li>
             <li>
               <Link
