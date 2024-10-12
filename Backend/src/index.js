@@ -1,8 +1,16 @@
-import app from './app.js'; // Asegúrate de incluir la extensión .js
+import app from "./app.js";
+import { PORT } from "./config.js";
 import { conexionDb } from './db.js';
-import { PORT } from './config.js'
 
-conexionDb()// la conexion de la base de datos
-app.listen(PORT, () => {
-  console.log('El servidor está escuchando en el puerto', PORT);
-});
+async function main() {
+  try {
+    await conexionDb();
+    app.listen(PORT);
+    console.log(`Listening on port http://localhost:${PORT}`);
+    console.log(`Environment: ${process.env.NODE_ENV}`)
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+main();

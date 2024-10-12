@@ -20,7 +20,10 @@ app.use(morgan('dev'));
 app.use(express.json())
 app.use(cookieParser())
 //usar las rutas
-app.use('/api', authRoutes);
+app.use('/api/auth', authRoutes);
 app.use('/api', Tareas);
+app.get('/', (req, res) => {
+    res.send('API de Tareas');
+})
 
 export default app;

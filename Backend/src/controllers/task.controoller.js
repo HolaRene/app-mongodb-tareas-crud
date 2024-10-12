@@ -20,7 +20,7 @@ export const crearTarea = async (req, res) => {
         const { title, description, date } = req.body
         //creando una nueva tarea
         const newTarea = new Tarea({ title, description, date, user: req.user.id })
-        console.log(req.user)
+        // console.log(req.user)
         //guardando la tarea
         const savatarea = await newTarea.save()
         //enviando la tarea
@@ -50,9 +50,13 @@ export const eliminarTarea = async (req, res) => {
 }
 export const actuaTarea = async (req, res) => {
     try {
-        // const { title, description, date } = req.body
+        const { title, description, date } = req.body
         // const newTarea = { title, description, date }
-        const tarea = await Tarea.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        const tarea = await Tarea.findOneAndUpdate(
+            { _id: req.params.id },
+            { title, description, date },
+            { new: true }
+        );
         if (!tarea) return res.status(404).json({ msg: 'La tarea no existe' })
         res.json(tarea)
     } catch (error) {

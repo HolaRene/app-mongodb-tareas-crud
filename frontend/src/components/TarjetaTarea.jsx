@@ -17,7 +17,7 @@ function TarjetaTarea({ tarea }) {
 
         <div className='flex flex-col sm:flex-row gap-x-2 gap-y-2 items-center mt-4'>
           <button
-            className='bg-red-600 hover:bg-red-800 text-white px-4 py-2 rounded-md w-full sm:w-auto'
+            className='bg-red-600 hover:bg-red-800 text-white px-1 py-1 rounded-md w-full sm:w-auto'
             onClick={() => {
               eliTarea(tarea._id)
             }}
@@ -25,7 +25,7 @@ function TarjetaTarea({ tarea }) {
             Eliminar
           </button>
           <Link
-            className='bg-green-700 hover:bg-green-600 text-white px-4 py-2 rounded-md w-full sm:w-auto'
+            className='bg-green-700 hover:bg-green-600 text-white px-1 py-1 rounded-md w-full sm:w-auto'
             to={`/tarea/${tarea._id}`}
           >
             Editar
@@ -34,7 +34,7 @@ function TarjetaTarea({ tarea }) {
       </header>
 
       <p className='text-slate-300 mt-2'>{tarea.description}</p>
-      <p className='text-slate-400 mt-1'>
+      <p className='text-sm text-gray-300 mt-1'>
         {day(tarea.date).utc().format('DD/MM/YYYY')}
       </p>
     </div>

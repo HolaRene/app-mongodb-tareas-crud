@@ -17,7 +17,7 @@ function PerfilPage() {
         experiencia segura.
       </p>
       <a
-        href='https://github.com/tu_usuario/tu_repositorio' // Cambia esto por el enlace a tu repositorio
+        href='https://github.com/HolaRene/app-mongodb-tareas-crud' // Cambia esto por el enlace a tu repositorio
         className='mt-4 text-blue-400 underline'
         target='_blank'
         rel='noopener noreferrer'

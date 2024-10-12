@@ -70,7 +70,7 @@ function Registro() {
             <p className='text-red-500'>La contraseña es requerida</p>
           )}
           <button
-            className='bg-cyan-800 text-slate-300 rounded p-2'
+            className='bg-cyan-600 hover:bg-cyan-700 text-slate-300 rounded p-2'
             type='submit'
           >
             Enviar Datos

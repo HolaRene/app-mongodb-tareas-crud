@@ -24,7 +24,7 @@ function Navegacion() {
             <li>
               <Link
                 to={'/tarea/nueva'}
-                className='bg-indigo-600 px-4 py-2 rounded-sm text-center block'
+                className='bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-sm text-center block'
               >
                 Crear tarea
               </Link>
@@ -54,7 +54,7 @@ function Navegacion() {
             <li>
               <Link
                 to={'/login'}
-                className='bg-indigo-600 hover:bg-indigo-400 px-4 py-2 rounded-sm text-center block'
+                className='bg-indigo-600 hover:bg-indigo-500 px-4 py-2 rounded-sm text-center block'
               >
                 Iniciar sesión
               </Link>

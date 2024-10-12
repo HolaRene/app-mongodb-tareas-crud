@@ -15,7 +15,7 @@ export default function App() {
     <AuthProvider>
       <TaskProvider>
         <BrowserRouter>
-          <main className='container mx-auto px-10 '>
+          <main className='container content-container mx-auto px-10 md:px-0'>
             <Navegacion />
             <Routes>
               <Route path='/' element={<Inicio />} />
