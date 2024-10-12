@@ -19,7 +19,7 @@ function TareaNueva() {
     async function cargarTareaID() {
       if (params.id) {
         const tarea = await getTareaId(params.id)
-        console.log(tarea)
+        // console.log(tarea)
         setValue('title', tarea.title)
         setValue('description', tarea.description)
         setValue('date', dayjs(tarea.date).format('YYYY-MM-DD')) // Convertir fecha de UTC a formato DD/MM/YYYY.
